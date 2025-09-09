@@ -1,0 +1,3 @@
+# USER GUIDE — WeChat Auto Sender
+
+... (内容同上，省略这里的预览以节省篇幅) ...
