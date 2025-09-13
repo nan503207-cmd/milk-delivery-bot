@@ -70,7 +70,7 @@ def add_transaction(
     return t
 
 def recalc_subscription_balance(s, subscription_id: int):
-    sub = s.query(Subscription).get(subscription_id)
+    sub = s.get(Subscription, subscription_id)
     if not sub:
         return None
     bottle_sum = (

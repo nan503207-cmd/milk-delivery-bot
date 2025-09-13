@@ -136,7 +136,7 @@ def process_one_task(task_id: int):
     from sender import send_text_lines  # 延迟导入，便于单元测试与可选依赖
 
     with session_scope() as s:
-        task: Task | None = s.query(Task).get(task_id)
+        task: Task | None = s.get(Task, task_id)
         if not task:
             logger.warning(f"Task#{task_id} not found.")
             return
