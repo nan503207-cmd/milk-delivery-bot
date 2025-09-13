@@ -24,12 +24,13 @@ except Exception:  # pragma: no cover
 
 # 可从 config 读取的选项（给默认值，兼容你的极简 config.py）
 try:
-    from config import DRY_RUN, AUDIT_DIR, SAFE_GAP_PER_MSG, JITTER_SECONDS
+    from config import DRY_RUN, AUDIT_DIR, SAFE_GAP_PER_MSG, JITTER_SECONDS, INPUT_BOX_POS
 except Exception:
     DRY_RUN = True
     AUDIT_DIR = "audit"
     SAFE_GAP_PER_MSG = 3.5
     JITTER_SECONDS = (0.8, 2.2)
+    INPUT_BOX_POS = (1275, 850)
 
 def _jitter(a=0.8, b=2.2):
     time.sleep(random.uniform(a, b))
@@ -81,8 +82,8 @@ def _find_and_open_contact(name: str):
     # _jitter(0.3, 0.5)   # 给微信反应时间
     # gui.press("enter")  # 再按一次，确保进入聊天
     _human_pause(0.6)
-    # 👇 点击输入框位置（x,y需要你自己量一下）
-    gui.click(1275, 850)   # 假设输入框大概在屏幕底部
+    # 👇 点击输入框位置（可在 config.py 中配置 INPUT_BOX_POS）
+    gui.click(*INPUT_BOX_POS)
     _human_pause(0.3)
 
 def send_text_lines(contact_name: str, lines: list[str]):

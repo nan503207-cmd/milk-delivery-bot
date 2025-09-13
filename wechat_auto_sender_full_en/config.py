@@ -39,3 +39,6 @@ MAX_RETRY = 3
 NIGHT_SILENT = False
 NIGHT_START = 22   # 晚上 22 点后不发
 NIGHT_END = 7      # 早上 7 点前不发
+
+# 微信输入框的点击位置 (x, y)，需根据屏幕实际情况测量
+INPUT_BOX_POS = (1275, 850)
